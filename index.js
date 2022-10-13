@@ -1,3 +1,16 @@
+// //game loop
+// function playGame(){
+//     //variables
+//     let randomNumber = Math.floor(Math.random() * 100) + 1;
+//     let playerGuess ;
+
+
+// //    //winning logic
+//    if (playerGuess === randomNumber) {
+//     console.log("you got it")
+//    }
+
+// }
 
 // gets a random number
 function randomNum() { 
@@ -6,31 +19,29 @@ function randomNum() {
     return number;
 }
 
+//for testing,  display random num on screen
+let results = document.getElementById('results')
+let random = randomNum();
+
+results.textContent = random;
 
 const guessForm = document.getElementById('guess');
 const guessList = document.querySelector('#guesses')
-const resetBtn = document.querySelector('#reset')
 
-// gets players guess
+
+
+let guessAttempt;
 document.querySelector('form.guessForm').addEventListener('submit', function (e) {
     e.preventDefault();  
-    let guessAttempt = document.createElement('li')
+    guessAttempt = document.createElement('li')
     guessAttempt.textContent = guessForm.value;
-    guessList.append(guessAttempt);
- 
-});
+    guessList.append(guessAttempt);  
+    if (guessForm.value == random) {
+
+        console.log('You win');
+
+    }
+}); 
 
 
-// function resetList() {
-
-// }
-
-// resetBtn.addEventListener("click", function() {
-//     let guessAttempt = document.createElement('li')
-//     guessAttempt.textContent = "";
-//    randomNum()
-    
-// })
-
-
-randomNum()
+// playGame()
