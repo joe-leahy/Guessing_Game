@@ -1,38 +1,36 @@
-let body = document.body;
-let gameBoard = document.getElementById('testing')
-body.append(gameBoard);
 
-let state = {
-    hint: '',
-    randomNum: Math.floor(Math.random()* 100)+1
+// gets a random number
+function randomNum() { 
+   let number = Math.floor(Math.random() * 100) + 1;
+    console.log(`Random number: ${number}`);
+    return number;
 }
 
-//display random number
-gameBoard.textContent = state.randomNum;
 
-/**function win(guess){
+const guessForm = document.getElementById('guess');
+const guessList = document.querySelector('#guesses')
+const resetBtn = document.querySelector('#reset')
 
-    if (guess === state.randomNum){
-
-        //YOU WIN!
-
-    }
-}
-    */
-
-
-/** function giveHint (guess){
+// gets players guess
+document.querySelector('form.guessForm').addEventListener('submit', function (e) {
+    e.preventDefault();  
+    let guessAttempt = document.createElement('li')
+    guessAttempt.textContent = guessForm.value;
+    guessList.append(guessAttempt);
  
+});
 
 
- */
+// function resetList() {
+
+// }
+
+// resetBtn.addEventListener("click", function() {
+//     let guessAttempt = document.createElement('li')
+//     guessAttempt.textContent = "";
+//    randomNum()
+    
+// })
 
 
-
-
-
-
-
-
-
-
+randomNum()
